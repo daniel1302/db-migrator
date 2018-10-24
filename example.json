@@ -1,0 +1,26 @@
+{
+    "options": {
+        "lock_import": false
+    },
+
+    "databases": [
+        {
+            "name": "first_db_name",
+            "user": "first_db_user",
+            "pass": "some_secret_password",
+            "host": "host.mysql.server.com"
+        },
+        {
+            "name": "second_db_name",
+            "user": "second_db_user",
+            "pass": "some_secret_password",
+            "host": "host.mysql.server.com"
+        },
+        {
+            "name": "third_db_name",
+            "user": "third_db_user",
+            "pass": "some_secret_password",
+            "host": "host.mysql.server.com"
+        }
+    ]
+}
