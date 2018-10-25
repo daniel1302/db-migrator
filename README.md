@@ -82,7 +82,7 @@ Example:
     ```
 
 
-# Available options
+# Available global options
 
     * lock_import - If this options is set to true you cannot import databases with active configuration.
 
@@ -98,3 +98,24 @@ Example:
             "..."
         ]
     }
+    ```
+
+
+# Available options per table
+
+    * lock_tables - If this options is set to false Export script use --lock-tables=false flag
+
+    Example:
+
+    ```json
+    ...
+    "databases": [
+        {
+            "options": {
+                "lock_tables": false
+            },
+            "..."
+        }
+        "..."
+    ]
+    ```
