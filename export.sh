@@ -22,11 +22,31 @@ for i in $(seq 1 $DB_NUM); do
     mkdir -p $OUT_DIR;
 
     if (mysql --user=$USER --host=$HOST --password=$PASS $NAME -e "" 2>/dev/null) ; then
+        
+        TABLES_NUM=$(echo $DB_DETAILS | jq '.tables | length');
 
+        TABLES_OPT="";
+        if [ $TABLES_NUM -gt 0 ]; then
+            TABLES=$(echo $DB_DETAILS | jq '.tables | join(" ")');
+            TABLES_OPT="--tables $TABLES";
+        fi;
+
+        LOCK_TABLES=$(echo $DB_DETAILS | jq '.options.lock_tables');
+        LOCK_TABLE_OPT="";
+        if [ "$LOCK_TABLES" == "false" ]; then
+            LOCK_TABLE_OPT="--lock-tables=false";
+        fi;
+        
         echo "Exporting $NAME";
-        mysqldump --user=$USER --host=$HOST --password=$PASS $NAME 2>/dev/null \
-            | pv \
-            | gzip \
+        mysqldump                       \
+          --user=$USER                  \
+          --host=$HOST                  \
+          --password=$PASS $NAME        \
+          $TABLE_OPT                    \
+          $LOCK_TABLE_OPT               \
+          2>/dev/null                   \
+            | pv                        \
+            | gzip                      \
             > $OUT_DIR'/'$NAME'.gz' ;
 
     else
