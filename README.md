@@ -52,7 +52,7 @@ Save below content to `db1.json` and fill with your db params in `databases` sec
 
 To export use the `export.sh` script.
 
-Usage: `./export.sh configuration.json output_directory`
+Usage: ` ./export.sh configuration.json output_directory `
 
     * configuration.json - configuration file created in previous step.
     * output_directory - directory where output of export will be generated.
