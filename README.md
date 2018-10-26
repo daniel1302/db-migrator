@@ -54,15 +54,15 @@ To export use the `export.sh` script.
 
 Usage: ` ./export.sh configuration.json output_directory `
 
-    * configuration.json - configuration file created in previous step.
-    * output_directory - directory where output of export will be generated.
+* configuration.json - configuration file created in previous step.
+* output_directory - directory where output of export will be generated.
 
 
 Example: 
 
-    ```bash
-    ./export db1.json db1_10_04_2018
-    ```
+ ```bash
+ ./export db1.json db1_10_04_2018
+```
 
 Above command will crate 3 files in the `db1_10_04_2018` directory. One file per database. File name is equal to dbname.
 
@@ -72,50 +72,50 @@ To import database use the `import.sh` script.
 
 Usage: `./export.sh configuration.json input_directory`
 
-    * configuration.json - configuration file created in first step.
-    * input_directory - directory where you generated output with the `export.sh` script.
+ * configuration.json - configuration file created in first step.
+ * input_directory - directory where you generated output with the `export.sh` script.
 
 Example: 
 
-    ```bash
-    ./import.sh db1.json db1_10_04_2018
-    ```
+ ```bash
+ ./import.sh db1.json db1_10_04_2018
+ ```
 
 
 # Available global options
 
-    * lock_import - If this options is set to true you cannot import databases with active configuration.
+ * lock_import - If this options is set to true you cannot import databases with active configuration.
 
-    Example: 
+ Example: 
 
-    ```json
-    {
-        "options": {
-            "lock_import": true
-        },
+ ```json
+ {
+     "options": {
+         "lock_import": true
+     },
 
-        "databases": [
-            "..."
-        ]
-    }
-    ```
+     "databases": [
+         "..."
+     ]
+ }
+ ```
 
 
 # Available options per table
 
-    * lock_tables - If this options is set to false Export script use --lock-tables=false flag
+ * lock_tables - If this options is set to false Export script use --lock-tables=false flag
 
-    Example:
+ Example:
 
-    ```json
-    ...
-    "databases": [
-        {
-            "options": {
-                "lock_tables": false
-            },
-            "..."
-        }
-        "..."
-    ]
-    ```
+ ```json
+ ...
+ "databases": [
+     {
+         "options": {
+             "lock_tables": false
+         },
+         "..."
+     }
+     "..."
+ ]
+ ```
